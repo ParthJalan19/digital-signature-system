@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161f;
+  --border: #2a2a3a;
+  --accent: #00d4ff;
+  --accent-green: #00ff88;
+  --accent-purple: #8b5cf6;
+  --text-primary: #f0f0f5;
+  --text-secondary: #8888aa;
+  --danger: #ff4466;
+  --success: #00ff88;
+}
+
+body {
+  font-family: 'DM Mono', monospace;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+input, textarea, select {
+  font-family: 'DM Mono', monospace;
+  outline: none;
+}
+
+button { cursor: pointer; font-family: 'Syne', sans-serif; }
+a { text-decoration: none; color: inherit; }

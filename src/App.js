@@ -1,0 +1,37 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import UploadDocument from './pages/UploadDocument';
+import SignDocument from './pages/SignDocument';
+import VerifyDocument from './pages/VerifyDocument';
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Toaster position="top-right" />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/verify/:docId" element={<VerifyDocument />} />
+          <Route path="/" element={
+            <ProtectedRoute><Dashboard /></ProtectedRoute>
+          } />
+          <Route path="/upload" element={
+            <ProtectedRoute><UploadDocument /></ProtectedRoute>
+          } />
+          <Route path="/sign/:docId" element={
+            <ProtectedRoute><SignDocument /></ProtectedRoute>
+          } />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
+
+export default App;
